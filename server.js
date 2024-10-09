@@ -34,7 +34,7 @@ app.get('/roll/:number', (req, res) => {
         if (isNaN(number)) {
             res.send('You must specify a number.')
         } else {
-            const randomNumber = Math.floor(Math.random() * (number + 1))
+            const randomNumber = Math.floor(Math.random() * number +1)
             res.send(`You rolled a ${randomNumber}.`)
         }
         });
@@ -45,7 +45,6 @@ app.get('/roll/:number', (req, res) => {
 
         app.get('/collectibles/:index', (req, res) => {
             const index = req.params.index;
-        
             if (isNaN(index)) {
                 res.send('This item is not yet in stock. Check back soon!')
             } else {
